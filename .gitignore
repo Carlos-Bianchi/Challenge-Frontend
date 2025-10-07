@@ -1,0 +1,25 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de teste
+test-icons.html
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+*~
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (caso venha a usar no futuro)
+node_modules/
+npm-debug.log*
