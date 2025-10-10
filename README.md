@@ -1,81 +1,122 @@
 # 🦷 Sistema de Gestão - Turma do Bem
 
 ## 📋 Descrição do Projeto
-Sistema web desenvolvido para otimizar e centralizar a gestão da ONG Turma do Bem, conectando voluntários dentistas a pacientes que necessitam de cuidados odontológicos.
+Sistema web completo desenvolvido para otimizar e centralizar a gestão da ONG Turma do Bem, conectando voluntários dentistas a pacientes que necessitam de cuidados odontológicos através de uma plataforma moderna e intuitiva.
 
 ## 🎯 Objetivo
-Criar uma plataforma integrada que facilite o gerenciamento de voluntários, pacientes e operações da ONG, garantindo maior eficiência e impacto social.
+Criar uma plataforma integrada que facilite o gerenciamento de voluntários, pacientes e operações da ONG, garantindo maior eficiência e organização.
 
-## 🚀 Funcionalidades Principais
+## 🚀 Funcionalidades Implementadas
+### 📄 Páginas principais
+- **🏠 Home** - Página inicial com apresentação do sistema e navegação
+- **ℹ️ Sobre** - Informações detalhadas sobre o projeto e a ONG
+- **❓ FAQ** - Perguntas frequentes com sistema de accordion interativo
+- **📞 Contato** - Formulário de contato com validação e informações da empresa
+- **👥 Integrantes** - Apresentação da equipe de desenvolvimento
 
-### Módulos Core
-- **👥 Gestão de Cadastros** - Sistema completo para cadastro e gerenciamento de pacientes, dentistas voluntários e funcionários
-- **🤝 Sistema de Match** - Algoritmo inteligente para conectar pacientes aos voluntários mais adequados
-- **💬 Centro de Comunicação** - Centralização de toda comunicação interna e externa
-
-### Funcionalidades Adicionais
-- 📅 Agendamento Online
-- 📊 Dashboard Analítico
-- 🛡️ Segurança de Dados com Repositórios Locais
-- 🏥 Prontuário Eletrônico
-- 📱 Acesso Mobile Responsivo
-- 📈 Criação de Relatórios Personalizados
+### 🧩 Módulos do Sistema
+- **🤝 Sistema de Match** - Algoritmo inteligente para conectar pacientes aos voluntários mais adequados baseado em localização, especialidade e disponibilidade
+- **💬 Comunicação** - Centro de comunicação com caixa de entrada, mensagens enviadas e notificações
+- **👤 Usuários** - Gestão completa de usuários (dentistas, pacientes e administradores) com diferentes perfis e permissões
+- **📊 Dashboard** - Painel analítico com métricas, gráficos e indicadores de performance
+- **📋 Relatórios** - Sistema de upload e gestão de relatórios médicos com modelos pré-definidos
 
 ## 💻 Tecnologias Utilizadas
+- **HTML5** - Estrutura semântica com tags apropriadas
+- **CSS3** - Estilização com:
+  - Variáveis CSS para consistência
+  - Grid Layout e Flexbox para layouts responsivos
+- **Font Awesome 6** - Biblioteca completa de ícones
 
-### Frontend (Atual)
-- **HTML5** - Estrutura semântica moderna
-- **CSS3** - Estilização com variáveis CSS, Grid Layout e Flexbox
-- **Font Awesome 6** - Biblioteca de ícones
 
 ### Planejado para Futuras Implementações
-- **JavaScript** - Interatividade e dinamismo
-- **Python + Flask** - Backend
-- **MySQL** - Banco de dados
+- **Python + Flask** - Backend robusto
+- **MySQL** - Banco de dados relacional
+- **API REST** - Comunicação frontend/backend
+- **JavaScript** - Funcionalidades interativas (FAQ accordion, validação de formulários)
 
 ## 🎨 Design
 - Interface limpa e moderna
 - Paleta de cores amarelo (#FFB700) e verde (#1E7E34)
-- 100% responsivo para todos os dispositivos
-- Acessibilidade seguindo padrões WCAG
-
-## 📊 Impacto da ONG
-- **80.000+** mulheres, crianças e adolescentes atendidos
-- **18.000+** dentistas voluntários cadastrados
-- **12** países com atuação ativa
 
 ## 🛣️ Roadmap do Projeto
 
 ### Fase 1 - Estrutura ✅
-Estabelecimento da estrutura fundamental e identidade visual
+**Foco:** Estabelecer a estrutura fundamental do projeto e sua identidade visual, a arquitetura dos diferentes módulos e o planejamento de como fazer a integração dos mesmos.
 
-### Fase 2 - Criação dos Módulos 🔄
-Desenvolvimento dos módulos centrais e sistema de Match
+**Realizações:**
+- ✅ Estrutura HTML semântica
+- ✅ Sistema de design com CSS
+- ✅ Identidade visual da ONG
+- ✅ Arquitetura dos módulos
+- ✅ Planejamento de integração
+
+### Fase 2 - Criação dos Módulos ✅
+**Foco:** Desenvolvimento dos módulos centrais responsáveis pelas features da aplicação. Estrutura de cadastro (Pacientes, Dentistas, Funcionários da ONG), esqueleto do Módulo de Relatórios, Centro de Comunicações e criação da estrutura lógica e interface do Módulo de Recomendação (Match), definindo os parâmetros iniciais (prioridade, disponibilidade e região) para sugerir o voluntário mais adequado ao paciente.
+
+**Realizações:**
+- ✅ Sistema de Match com parâmetros de recomendação
+- ✅ Centro de Comunicação completo
+- ✅ Gestão de Usuários (Pacientes, Dentistas, Funcionários)
+- ✅ Dashboard Analítico
+- ✅ Sistema de Relatórios
+- ✅ Interfaces de usuário preparadas para integração
 
 ### Fase 3 - Integrações e Testes 📝
-Conexão com banco de dados e testes de funcionalidade
+**Foco:** Integração dos módulos desenvolvidos, conectando as diferentes estruturas ao banco de dados e ativando a troca de informações entre os módulos. Após a integração, testes do programa para garantir funcionamento correto.
 
-### Fase 4 - Expansão e Manutenção 🚀
-Novas funcionalidades baseadas em feedback
+**Planejado:**
+- 📝 Integração com banco de dados MySQL
+- 📝 Conexão entre módulos
+- 📝 API REST para comunicação
+- 📝 Testes de funcionalidade
+- 📝 Testes de integração
+- 📝 Validação de dados
+
+### Fase 4 - Expansão e Manutenção 📝
+**Foco:** Implementação de novas funcionalidades e alterações baseadas no feedback da ONG, seguida por testes das mudanças implementadas.
+
+**Planejado:**
+- 📝 Funcionalidades baseadas em feedback
+- 📝 Melhorias de performance
+- 📝 Novas integrações
+- 📝 Testes das novas funcionalidades
+- 📝 Manutenção contínua
+- 📝 Atualizações de segurança
 
 ## 🌙 Próximas Implementações
-- Modo Escuro para melhor experiência noturna
-- Otimização de Performance com lazy loading
-- Sistema de Backup Automatizado
-- Integração com APIs externas
+- **Modo Escuro** - Interface noturna para melhor experiência
+- **Notificações Push** - Alertas em tempo real
+- **APIs Externas** - Integração com serviços terceiros
 
 ## 📁 Estrutura do Projeto
 ```
 Frontend-Challenge/
 │
-├── index.html          # Página principal
-├── sobre.html          # Sobre o projeto
-├── faq.html            # Perguntas frequentes
-├── contato.html        # Página de contato
-├── integrantes.html    # Equipe do projeto
-├── styles.css          # Estilos globais
-├── .gitignore          # Arquivos ignorados pelo Git
-└── README.md           # Este arquivo
+├── 📄 Páginas Principais
+│   ├── index.html          # Página inicial
+│   ├── sobre.html          # Sobre o projeto
+│   ├── faq.html            # Perguntas frequentes
+│   ├── contato.html        # Formulário de contato
+│   └── integrantes.html    # Equipe do projeto
+│
+├── 🧩 Módulos do Sistema
+│   ├── sistema-match.html  # Sistema de correspondência
+│   ├── comunicacao.html    # Centro de comunicação
+│   ├── usuarios.html       # Gestão de usuários
+│   ├── dashboard.html      # Painel analítico
+│   └── relatorios.html     # Sistema de relatórios
+│
+├── 🎨 Recursos
+│   ├── styles.css          # Estilos globais e componentes
+│   └── assets/             # Imagens e recursos (futuro)
+│
+├── 📋 Documentação
+│   ├── README.md           # Este arquivo
+│   └── .gitignore          # Arquivos ignorados pelo Git
+│
+└── 🚀 Deploy
+    └── (Configurações de deploy futuras)
 ```
 
 ## 🚀 Como Executar
@@ -86,18 +127,9 @@ Frontend-Challenge/
 2. Abra o arquivo `index.html` em seu navegador
 
 ## 👥 Equipe de Desenvolvimento
-- Wagner Bianchi - Desenvolvedor Full Stack
-- Flavio Laet - Desenvolvedor Full Stack  
-- Kevin Galhardo - UX/UI Designer
-- Mariana Neugebauer - Analista de Negócios
-- Orlando Lucas - QA/Tester
-
-## 📝 Licença
-Este projeto foi desenvolvido como parte de um desafio frontend para demonstrar habilidades em desenvolvimento web.
-
-## 📧 Contato
-Para mais informações sobre o projeto: contato@projeto.com.br
-
+- Caio Vinicius Silva Araujo
+- Carlos Aurelio Tolosa Bianchi
+- Vinicius Morrone Lustosa
 ---
 
 **Desenvolvido com ❤️ para transformar sorrisos**
