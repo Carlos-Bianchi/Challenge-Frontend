@@ -21,15 +21,25 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fa-solid fa-tooth"></i>
-                    Turma do Bem
+                    <a href="index.html">Turma do Bem</a>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-                        <li><a href="sobre.html" ><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
-                        <li><a href="faq.html" ><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
-                        <li><a href="contato.html" ><i class="fa-solid fa-envelope"></i> Contato</a></li>
-                        <li><a href="integrantes.html" ><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                                <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                                <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                                <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                                <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
                     </ul>
                 </nav>
             </div>
@@ -48,7 +58,7 @@
                     conectando voluntários e pacientes de forma eficiente. Transformando sorrisos e vidas através 
                     da tecnologia e solidariedade.
                 </p>
-                <a href="sobre.html" class="btn btn-primary">
+                <a href="sobre.html" class="btn btn-primary" id="btn-conhecer">
                     <i class="fa-solid fa-arrow-right"></i> Conhecer o Sistema
                 </a>
             </section>
@@ -134,23 +144,6 @@
                 </div>
             </section>
             
-            <!-- CTA Section -->
-            <section class="section text-center">
-                <div class="card" style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, var(--cor-secundaria), #2a9d3f);">
-                    <i class="fa-solid fa-heart" style="font-size: 3rem; color: var(--cor-branco); margin-bottom: 1rem;"></i>
-                    <h2 style="color: var(--cor-branco);">Faça Parte Dessa Transformação</h2>
-                    <p style="color: var(--cor-branco); opacity: 0.95;">Junte-se a nós nessa missão de transformar vidas através de sorrisos saudáveis. 
-                    Seja como voluntário, parceiro ou apoiador, sua contribuição faz a diferença!</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
-                        <a href="sobre.html" class="btn btn-primary">
-                            <i class="fa-solid fa-book"></i> Conhecer o Projeto
-                        </a>
-                        <a href="contato.html" class="btn" style="background-color: var(--cor-branco); color: var(--cor-secundaria);">
-                            <i class="fa-solid fa-hand-holding-heart"></i> Quero Ajudar
-                        </a>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
 
@@ -172,9 +165,20 @@
                     <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
                     <ul>
                         <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre o Projeto</a></li>
-                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> Perguntas Frequentes</a></li>
-                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Nossa Equipe</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

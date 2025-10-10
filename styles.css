@@ -119,6 +119,16 @@ header {
     margin-right: 0.5rem;
 }
 
+.logo a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--cor-primaria);
+}
+
 /* Navegação */
 nav ul {
     list-style: none;
@@ -134,7 +144,6 @@ nav a {
     border-radius: var(--borda-radius);
     transition: all 0.3s ease;
 }
-
 nav a:hover {
     background-color: var(--cor-primaria);
     color: var(--cor-branco);
@@ -143,6 +152,185 @@ nav a:hover {
 nav a.active {
     background-color: var(--cor-secundaria);
     color: var(--cor-branco);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 0;
+    background-color: var(--cor-branco);
+    min-width: 220px;
+    box-shadow: var(--sombra-media);
+    border-radius: var(--borda-radius);
+    padding: var(--espacamento-pequeno) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--espacamento-pequeno) var(--espacamento-medio);
+    color: var(--cor-texto);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    margin: 0;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--cor-cinza-claro);
+    color: var(--cor-secundaria);
+}
+
+.dropdown-menu a.active {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+}
+
+.dropdown.active > .dropdown-toggle {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+}
+
+/* Priority Badges */
+.priority-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--sombra-leve);
+    transition: all 0.3s ease;
+}
+
+.priority-badge i {
+    font-size: 1rem;
+}
+
+.priority-high {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    animation: pulse-high 2s infinite;
+}
+
+.priority-medium {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #333;
+    animation: pulse-medium 3s infinite;
+}
+
+.priority-low {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: white;
+}
+
+.priority-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+
+@keyframes pulse-high {
+    0%, 100% { 
+        box-shadow: var(--sombra-leve); 
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.4);
+    }
+}
+
+@keyframes pulse-medium {
+    0%, 100% { 
+        box-shadow: var(--sombra-leve); 
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+    }
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--sombra-leve);
+    transition: all 0.3s ease;
+}
+
+.status-badge i {
+    font-size: 1rem;
+}
+
+.status-active {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    animation: pulse-active 3s infinite;
+}
+
+.status-pending {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: #333;
+    animation: pulse-pending 2s infinite;
+}
+
+.status-inactive {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+.status-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+
+@keyframes pulse-active {
+    0%, 100% { 
+        box-shadow: var(--sombra-leve); 
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
+    }
+}
+
+@keyframes pulse-pending {
+    0%, 100% { 
+        box-shadow: var(--sombra-leve); 
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+    }
 }
 
 /* Main content */
@@ -239,9 +427,17 @@ footer {
 }
 
 .btn-primary:hover {
-    background-color: #e69a00;
+    background-color: #fd7e14;
     transform: translateY(-2px);
     box-shadow: var(--sombra-media);
+}
+
+#btn-conhecer {
+    color:#000;
+}
+
+#btn-conhecer:hover {
+    color: #ffffff;;
 }
 
 .btn-secondary {
