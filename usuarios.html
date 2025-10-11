@@ -249,23 +249,27 @@
             <!-- Quick Actions -->
             <section class="section">
                 <div class="card">
-                    <h2><i class="fa-solid fa-bolt" style="color: var(--cor-secundaria);"></i> Ações Rápidas</h2>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin: 0;"><i class="fa-solid fa-bolt" style="color: var(--cor-secundaria);"></i> Ações Rápidas</h2>
+                        <button class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                            <i class="fa-solid fa-file-export"></i> Exportar Dados
+                        </button>
+                    </div>
                     <div class="cards-grid">
                         <button class="btn btn-primary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
-                            <i class="fa-solid fa-user-plus" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <div style="position: relative; display: inline-block; margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor" style="font-size: 2rem;"></i>
+                                <i class="fa-solid fa-plus" style="position: absolute; top: 5px; right: -8px; font-size: 0.8rem; color: black; text-shadow: 0.5px 0 0 black, -0.5px 0 0 black, 0 0.5px 0 black, 0 -0.5px 0 black;"></i>
+                            </div>
                             Cadastrar Dentista
                         </button>
                         <button class="btn btn-secondary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
                             <i class="fa-solid fa-user-check" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             Aprovar Cadastros
                         </button>
-                        <button class="btn btn-outline" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
-                            <i class="fa-solid fa-file-export" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                            Exportar Dados
-                        </button>
-                        <button class="btn" style="background-color: var(--cor-primaria); color: var(--cor-texto); display: flex; flex-direction: column; align-items: center; padding: 2rem;">
-                            <i class="fa-solid fa-envelope-bulk" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                            Envio em Massa
+                        <button class="btn btn-primary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-user-plus" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Cadastrar Paciente
                         </button>
                     </div>
                 </div>
@@ -276,24 +280,24 @@
                 <div class="card">
                     <h2><i class="fa-solid fa-tools" style="color: var(--cor-secundaria);"></i> Ferramentas de Gestão</h2>
                     <div class="cards-grid">
-                        <div class="card">
+                        <div class="card" style="display: flex; flex-direction: column;">
                             <h3><i class="fa-solid fa-shield-halved" style="color: var(--cor-primaria);"></i> Controle de Acesso</h3>
-                            <p>Gerencie permissões e níveis de acesso dos usuários ao sistema.</p>
-                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Gerencie permissões e níveis de acesso dos usuários ao sistema.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
                                 <i class="fa-solid fa-key"></i> Gerenciar Permissões
                             </button>
                         </div>
-                        <div class="card">
+                        <div class="card" style="display: flex; flex-direction: column;">
                             <h3><i class="fa-solid fa-history" style="color: var(--cor-primaria);"></i> Histórico de Atividades</h3>
-                            <p>Visualize o log de atividades e ações realizadas pelos usuários.</p>
-                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Visualize o log de atividades e ações realizadas pelos usuários.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
                                 <i class="fa-solid fa-list"></i> Ver Histórico
                             </button>
                         </div>
-                        <div class="card">
+                        <div class="card" style="display: flex; flex-direction: column;">
                             <h3><i class="fa-solid fa-ban" style="color: var(--cor-primaria);"></i> Usuários Bloqueados</h3>
-                            <p>Gerencie usuários suspensos ou com acesso restrito ao sistema.</p>
-                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Gerencie usuários suspensos ou com acesso restrito ao sistema.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
                                 <i class="fa-solid fa-user-slash"></i> Ver Bloqueados
                             </button>
                         </div>

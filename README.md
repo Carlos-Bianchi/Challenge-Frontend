@@ -68,7 +68,7 @@ Criar uma plataforma integrada que facilite o gerenciamento de voluntários, pac
 **Foco:** Integração dos módulos desenvolvidos, conectando as diferentes estruturas ao banco de dados e ativando a troca de informações entre os módulos. Após a integração, testes do programa para garantir funcionamento correto.
 
 **Planejado:**
-- 📝 Integração com banco de dados MySQL
+- 📝 Integração com banco de dados
 - 📝 Conexão entre módulos
 - 📝 API REST para comunicação
 - 📝 Testes de funcionalidade
