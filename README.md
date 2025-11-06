@@ -28,14 +28,30 @@ Criar uma plataforma integrada que facilite o gerenciamento de voluntários, pac
 - **CSS3** - Estilização com:
   - Variáveis CSS para consistência
   - Grid Layout e Flexbox para layouts responsivos
-- **Font Awesome 6** - Biblioteca completa de ícones
-
+- **Font Awesome 6** - Biblioteca completa de ícones (local)
 
 ### Planejado para Futuras Implementações
 - **Python + Flask** - Backend robusto
 - **MySQL** - Banco de dados relacional
 - **API REST** - Comunicação frontend/backend
 - **JavaScript** - Funcionalidades interativas (FAQ accordion, validação de formulários)
+
+## 🚫 Restrições do Projeto
+
+### Dependências Externas NÃO Permitidas
+Para garantir a independência e segurança do projeto, **é PROIBIDO o uso de**:
+
+- ❌ **CDNs** (Content Delivery Networks) - Todos os recursos devem estar hospedados localmente
+- ❌ **Frameworks JavaScript externos** - React, Vue, Angular, jQuery, etc.
+- ❌ **Bibliotecas CSS via CDN** - Bootstrap, Tailwind, Materialize, etc.
+- ❌ **Recursos externos** - Fontes, ícones, imagens de servidores externos
+- ❌ **APIs de terceiros** sem aprovação prévia
+
+### Tecnologias Permitidas
+- ✅ HTML5, CSS3 e JavaScript nativos
+- ✅ Arquivos locais no diretório `vendors/`
+- ✅ Recursos auto-hospedados no projeto
+- ✅ Google Fonts (via CSS import no arquivo styles.css)
 
 ## 🎨 Design
 - Interface limpa e moderna
@@ -89,7 +105,7 @@ Criar uma plataforma integrada que facilite o gerenciamento de voluntários, pac
 ## 🌙 Próximas Implementações
 - **Modo Escuro** - Interface noturna para melhor experiência
 - **Notificações Push** - Alertas em tempo real
-- **APIs Externas** - Integração com serviços terceiros
+- **Integrações Internas** - Conexão entre módulos do sistema
 
 ## 📁 Estrutura do Projeto
 ```
@@ -133,5 +149,48 @@ Frontend-Challenge/
 - Carlos Aurelio Tolosa Bianchi
 - Vinicius Morrone Lustosa
 ---
+
+# ⚠️ REGRAS E PENALIDADES - SPRINT 02
+
+Este documento lista as penalidades estritas para a SPRINT 02. Todo o desenvolvimento deve aderir a estas regras para evitar perda de pontos.
+
+## ⛔ PENALIDADES CRÍTICAS (ZERAM A NOTA)
+
+> **VII. Utilização de frameworks, CDNs e/ou qualquer tipo de arquivo externo (-100,0 pontos)**
+> A utilização de frameworks e/ou soluções prontas, incluindo o Bootstrap, está estritamente proibida. A utilização de CDNs (para fontes, ícones, etc.) também é considerada um arquivo externo.
+> **Status: A nota da SPRINT 02 será automaticamente ZERADA se esta regra for violada.**
+
+> **V. Entrega da solução somente com link (-100,0 pontos)**
+> Não serão aceitas soluções que contenham apenas o link do repositório. É necessário o envio do arquivo `.ZIP`.
+
+## ⛔ PENALIDADES SEVERAS
+
+> **I. Arquivos maiores que 50 MB (-50,0 pontos)**
+> O arquivo `.ZIP` final do projeto não deve exceder 50 MB.
+
+> **V. Não entrega do link do GITHUB no README.md (-50 pontos)**
+> O `README.md` deve conter o link do repositório GitHub do projeto.
+
+> **VI. Falta do README.md (-50 pontos)**
+> A não entrega do `README.md`, ou a entrega de outro tipo de arquivo em seu lugar, acarretará esta penalidade.
+
+## ⛔ PENALIDADES DE CONTEÚDO
+
+> **II. Falta de Páginas Obrigatórias (-20,0 pontos POR PÁGINA)**
+> A ausência de qualquer uma das seguintes páginas resultará em -20 pontos por página faltante:
+> * Index/Home (Página Inicial)
+> * Integrantes
+> * Sobre/About
+> * FAQ (Perguntas Frequentes)
+> * Contato
+
+> **III. Falta da página de Integrantes (-20,0 pontos)**
+> A ausência da página `integrantes.html` será penalizada.
+
+> **IV. Itens Faltantes na Página de Integrantes (-30,0 pontos NO TOTAL)**
+> A página de integrantes deve conter Nome, RM e Turma para todos os membros. A falta de qualquer um destes itens gerará penalidade:
+> * Falta de Nome (-10,0 pontos)
+> * Falta de RM (-10,0 pontos)
+> * Falta de Turma (-10,0 pontos)
 
 **Desenvolvido com ❤️ para transformar sorrisos**

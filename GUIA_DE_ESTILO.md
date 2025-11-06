@@ -73,15 +73,13 @@ h3: 1.5rem (24px) - font-weight: 600
 
 ### Font Awesome
 **Versão**: 6.5.1
-**CDN Principal**: 
+**Localização**: Local (vendors/fontawesome/)
+**Importação**:
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
 ```
 
-**CDN Alternativo (Fallback)**:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
-```
+**⚠️ IMPORTANTE**: O projeto utiliza apenas arquivos locais. Não é permitido o uso de CDNs ou recursos externos.
 
 ### Ícones Utilizados
 - **Logo**: `fa-solid fa-tooth` (dente)
@@ -376,7 +374,7 @@ transition: all 0.3s ease;
 
 ### HTML
 1. Usar estrutura semântica (`header`, `main`, `footer`)
-2. Incluir ícones Font Awesome com fallback
+2. Incluir ícones Font Awesome localmente
 3. Manter navegação consistente entre páginas
 4. Usar classes descritivas e reutilizáveis
 
@@ -385,6 +383,24 @@ transition: all 0.3s ease;
 2. Usar `alt` em imagens
 3. Estruturar conteúdo com headings apropriados
 4. Garantir navegação por teclado
+
+---
+
+## 🚫 Restrições do Projeto
+
+### Dependências Externas
+**PROIBIDO o uso de:**
+- ❌ CDNs (Content Delivery Networks)
+- ❌ Frameworks JavaScript externos (React, Vue, Angular, etc.)
+- ❌ Bibliotecas CSS externas via CDN (Bootstrap, Tailwind, etc.)
+- ❌ Recursos hospedados externamente
+- ❌ APIs de terceiros sem aprovação
+
+**PERMITIDO:**
+- ✅ Arquivos locais no diretório `vendors/`
+- ✅ CSS e JavaScript nativos
+- ✅ HTML5 semântico
+- ✅ Recursos auto-hospedados no projeto
 
 ---
 
