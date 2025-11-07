@@ -59,7 +59,7 @@
             <section class="section">
                 <div class="faq-container">
                     <!-- Pergunta 1 -->
-                    <div class="faq-item">
+                    <div class="faq-item" data-faq-id="faq-1">
                         <button class="faq-question" onclick="toggleFAQ(this)">
                             <span><i class="fa-solid fa-code"></i> O que é este projeto e qual seu principal objetivo?</span>
                             <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -73,7 +73,7 @@
                     </div>
 
                     <!-- Pergunta 2 -->
-                    <div class="faq-item">
+                    <div class="faq-item" data-faq-id="faq-2">
                         <button class="faq-question" onclick="toggleFAQ(this)">
                             <span><i class="fa-solid fa-laptop-code"></i> Quais tecnologias foram utilizadas no desenvolvimento?</span>
                             <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -94,7 +94,7 @@
                     </div>
 
                     <!-- Pergunta 3 -->
-                    <div class="faq-item">
+                    <div class="faq-item" data-faq-id="faq-3">
                         <button class="faq-question" onclick="toggleFAQ(this)">
                             <span><i class="fa-solid fa-mobile-screen"></i> O projeto é responsivo e funciona em dispositivos móveis?</span>
                             <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -115,7 +115,7 @@
                     </div>
 
                     <!-- Pergunta 6 -->
-                    <div class="faq-item">
+                    <div class="faq-item" data-faq-id="faq-4">
                         <button class="faq-question" onclick="toggleFAQ(this)">
                             <span><i class="fa-solid fa-shield-check"></i> O projeto segue padrões de acessibilidade web?</span>
                             <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -138,7 +138,7 @@
                     </div>
 
                     <!-- Pergunta 7 -->
-                    <div class="faq-item">
+                    <div class="faq-item" data-faq-id="faq-5">
                         <button class="faq-question" onclick="toggleFAQ(this)">
                             <span><i class="fa-solid fa-rocket-launch"></i> Quais são os próximos passos e futuras implementações?</span>
                             <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -247,9 +247,44 @@
         </div>
     </footer>
 
-    <!-- Script para o funcionamento do accordion -->
+    <!-- Script para o funcionamento do accordion com sessionStorage -->
     <script>
+        // Chave para sessionStorage
+        const FAQ_SESSION_KEY = 'faq_aberta';
+
+        // Carregar FAQ aberta ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedFaqId = sessionStorage.getItem(FAQ_SESSION_KEY);
+            
+            if (savedFaqId) {
+                // Encontrar o item do FAQ salvo
+                const faqItem = document.querySelector(`[data-faq-id="${savedFaqId}"]`);
+                
+                if (faqItem) {
+                    const button = faqItem.querySelector('.faq-question');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    
+                    // Abrir o FAQ salvo
+                    if (button && answer) {
+                        button.classList.add('active');
+                        answer.classList.add('active');
+                        
+                        // Rolar suavemente até o FAQ aberto após um pequeno delay
+                        setTimeout(() => {
+                            faqItem.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 100);
+                    }
+                }
+            }
+        });
+
+        // Função para alternar FAQ
         function toggleFAQ(button) {
+            const faqItem = button.closest('.faq-item');
+            const faqId = faqItem.getAttribute('data-faq-id');
             const answer = button.nextElementSibling;
             const isActive = button.classList.contains('active');
             
@@ -263,8 +298,22 @@
             if (!isActive) {
                 button.classList.add('active');
                 answer.classList.add('active');
+                
+                // Salvar no sessionStorage qual FAQ está aberta
+                sessionStorage.setItem(FAQ_SESSION_KEY, faqId);
+            } else {
+                // Se estava ativo e foi fechado, remover do sessionStorage
+                sessionStorage.removeItem(FAQ_SESSION_KEY);
             }
         }
+
+        // Limpar sessionStorage ao sair da página (opcional)
+        // Comentado para manter o estado mesmo ao navegar entre páginas
+        /*
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.removeItem(FAQ_SESSION_KEY);
+        });
+        */
     </script>
 </body>
 </html>

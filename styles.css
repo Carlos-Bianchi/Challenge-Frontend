@@ -1,5 +1,8 @@
-/* Importando fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+/* 
+ * IMPORTANTE: Este projeto NÃO utiliza CDNs ou recursos externos
+ * Todas as fontes são web-safe fonts (fontes do sistema)
+ * Conforme exigência da SPRINT 02
+ */
 
 /* Variáveis de cores e configurações globais */
 :root {
@@ -11,9 +14,9 @@
     --cor-branco: #ffffff;
     --cor-cinza-claro: #f8f9fa;
     
-    /* Fontes */
-    --fonte-titulo: 'Montserrat', sans-serif;
-    --fonte-corpo: 'Roboto', sans-serif;
+    /* Fontes do sistema (web-safe fonts) */
+    --fonte-titulo: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --fonte-corpo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
     /* Espaçamentos */
     --espacamento-pequeno: 0.5rem;
@@ -112,17 +115,22 @@ header {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--cor-secundaria);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 .logo i {
     color: var(--cor-primaria);
     margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 .logo a {
     color: var(--cor-secundaria);
     text-decoration: none;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .logo a:hover {
@@ -143,6 +151,7 @@ nav a {
     padding: var(--espacamento-pequeno) var(--espacamento-medio);
     border-radius: var(--borda-radius);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 nav a:hover {
     background-color: var(--cor-primaria);
@@ -840,6 +849,86 @@ footer {
 }
 
 /* Responsividade */
+
+/* Tablets e telas médias (770px - 1150px) */
+@media (max-width: 1150px) {
+    /* Reduzir espaçamento entre itens do menu */
+    nav ul {
+        gap: var(--espacamento-medio);
+    }
+    
+    /* Reduzir padding dos links */
+    nav a {
+        padding: var(--espacamento-pequeno) 0.75rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Reduzir tamanho da logo */
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    .logo i {
+        font-size: 1.3rem;
+        margin-right: 0.4rem;
+    }
+    
+    /* Ajustar ícones para ocupar menos espaço */
+    nav a i {
+        margin-right: 0.3rem;
+    }
+}
+
+/* Tablets menores (770px - 1000px) */
+@media (max-width: 1000px) {
+    /* Reduzir ainda mais o espaçamento */
+    nav ul {
+        gap: var(--espacamento-pequeno);
+    }
+    
+    nav a {
+        padding: var(--espacamento-pequeno) 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .logo i {
+        font-size: 1.1rem;
+        margin-right: 0.35rem;
+    }
+    
+    /* Ajustar container para dar mais espaço */
+    .container {
+        padding: 0 var(--espacamento-medio);
+    }
+}
+
+/* Telas pequenas (770px - 850px) */
+@media (max-width: 850px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .logo i {
+        font-size: 1rem;
+        margin-right: 0.3rem;
+    }
+    
+    nav a {
+        padding: var(--espacamento-pequeno) 0.4rem;
+        font-size: 0.85rem;
+    }
+    
+    nav a i {
+        margin-right: 0.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile (até 768px) */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -908,4 +997,25 @@ footer {
 
 .pb-2 {
     padding-bottom: var(--espacamento-grande);
+}
+
+/* Mensagens de erro de validação */
+.error-message {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.error-message::before {
+    content: "⚠ ";
+    font-weight: bold;
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5;
 }

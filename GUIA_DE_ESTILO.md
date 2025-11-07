@@ -49,10 +49,12 @@
 
 ## 📝 Tipografia
 
-### Fontes
+### Fontes (Web-Safe Fonts)
+**IMPORTANTE:** O projeto utiliza apenas fontes do sistema (web-safe fonts) para evitar dependências externas.
+
 ```css
---fonte-titulo: 'Montserrat', sans-serif;  /* Títulos e cabeçalhos */
---fonte-corpo: 'Roboto', sans-serif;       /* Texto corrido e interface */
+--fonte-titulo: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+--fonte-corpo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ```
 
 ### Hierarquia de Títulos
@@ -62,10 +64,17 @@ h2: 2rem (32px) - font-weight: 600
 h3: 1.5rem (24px) - font-weight: 600
 ```
 
-### Importação das Fontes
-```html
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
-```
+### Justificativa
+As fontes escolhidas são **web-safe fonts** disponíveis nativamente nos sistemas operacionais:
+- **Segoe UI**: Fonte padrão do Windows (moderna e legível)
+- **Helvetica Neue**: Fonte padrão do macOS
+- **Arial/Tahoma/Verdana**: Fontes de fallback universais
+
+**Vantagens:**
+- ✅ Sem dependência de CDNs externos
+- ✅ Carregamento instantâneo (já instaladas no sistema)
+- ✅ Compatível com as regras da SPRINT 02
+- ✅ Excelente legibilidade e aparência profissional
 
 ---
 

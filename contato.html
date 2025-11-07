@@ -72,10 +72,10 @@
                                     id="nome" 
                                     name="nome" 
                                     placeholder="Digite seu nome completo"
-                                    required
                                     minlength="3"
                                     maxlength="100"
                                 >
+                                <span class="error-message" id="nome-error"></span>
                             </div>
 
                             <div class="form-group">
@@ -88,9 +88,8 @@
                                     id="email" 
                                     name="email" 
                                     placeholder="seu.email@exemplo.com"
-                                    required
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                 >
+                                <span class="error-message" id="email-error"></span>
                             </div>
 
                             <div class="form-group">
@@ -98,13 +97,14 @@
                                     <i class="fa-solid fa-bookmark"></i> Assunto
                                     <span style="color: var(--cor-primaria);">*</span>
                                 </label>
-                                <select id="assunto" name="assunto" required>
+                                <select id="assunto" name="assunto">
                                     <option value="" disabled selected>Selecione um assunto</option>
                                     <option value="duvida">Dúvida Geral</option>
                                     <option value="sugestao">Sugestão de Melhoria</option>
                                     <option value="bug">Reportar Problema/Bug</option>
                                     <option value="outro">Outro Assunto</option>
                                 </select>
+                                <span class="error-message" id="assunto-error"></span>
                             </div>
 
                             <div class="form-group">
@@ -116,14 +116,15 @@
                                     id="mensagem" 
                                     name="mensagem" 
                                     placeholder="Digite sua mensagem aqui... (mínimo 10 caracteres)"
-                                    required
                                     minlength="10"
                                     maxlength="1000"
                                     rows="6"
                                 ></textarea>
                                 <small style="color: var(--cor-texto); opacity: 0.7;">
                                     <span id="charCount">0</span>/1000 caracteres
+                                    <span id="draft-status" style="margin-left: 1rem; color: var(--cor-secundaria); font-style: italic;"></span>
                                 </small>
+                                <span class="error-message" id="mensagem-error"></span>
                             </div>
                             <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                                 <button type="submit" class="btn btn-primary" style="flex: 1;">
@@ -253,31 +254,244 @@
 
     <!-- Script para validação e interação do formulário -->
     <script>
-        // Contador de caracteres para a mensagem
-        const mensagem = document.getElementById('mensagem');
+        // Elementos do formulário
+        const form = document.getElementById('contactForm');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const assuntoSelect = document.getElementById('assunto');
+        const mensagemTextarea = document.getElementById('mensagem');
         const charCount = document.getElementById('charCount');
-        
-        mensagem.addEventListener('input', function() {
+        const draftStatus = document.getElementById('draft-status');
+
+        // Chave para localStorage
+        const DRAFT_KEY = 'contato_rascunho';
+
+        // Carregar rascunho salvo ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedDraft = localStorage.getItem(DRAFT_KEY);
+            if (savedDraft) {
+                try {
+                    const draft = JSON.parse(savedDraft);
+                    if (draft.mensagem) {
+                        mensagemTextarea.value = draft.mensagem;
+                        charCount.textContent = draft.mensagem.length;
+                        draftStatus.textContent = '✓ Rascunho recuperado';
+                        setTimeout(() => {
+                            draftStatus.textContent = '';
+                        }, 3000);
+                    }
+                    if (draft.nome) nomeInput.value = draft.nome;
+                    if (draft.email) emailInput.value = draft.email;
+                    if (draft.assunto) assuntoSelect.value = draft.assunto;
+                } catch (e) {
+                    console.error('Erro ao carregar rascunho:', e);
+                }
+            }
+        });
+
+        // Salvar rascunho automaticamente enquanto o usuário digita
+        function saveDraft() {
+            const draft = {
+                nome: nomeInput.value,
+                email: emailInput.value,
+                assunto: assuntoSelect.value,
+                mensagem: mensagemTextarea.value,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+            draftStatus.textContent = '✓ Salvo automaticamente';
+            setTimeout(() => {
+                draftStatus.textContent = '';
+            }, 2000);
+        }
+
+        // Contador de caracteres e salvamento automático
+        mensagemTextarea.addEventListener('input', function() {
             charCount.textContent = this.value.length;
+            saveDraft();
+        });
+
+        // Salvar rascunho ao alterar outros campos
+        nomeInput.addEventListener('input', saveDraft);
+        emailInput.addEventListener('input', saveDraft);
+        assuntoSelect.addEventListener('change', saveDraft);
+
+        // Funções de validação
+        function validateNome(nome) {
+            if (!nome || nome.trim().length === 0) {
+                return 'O nome é obrigatório.';
+            }
+            if (nome.trim().length < 3) {
+                return 'O nome deve ter pelo menos 3 caracteres.';
+            }
+            if (nome.trim().length > 100) {
+                return 'O nome deve ter no máximo 100 caracteres.';
+            }
+            if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(nome)) {
+                return 'O nome deve conter apenas letras e espaços.';
+            }
+            return null;
+        }
+
+        function validateEmail(email) {
+            if (!email || email.trim().length === 0) {
+                return 'O e-mail é obrigatório.';
+            }
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                return 'Por favor, insira um e-mail válido (exemplo: usuario@dominio.com).';
+            }
+            return null;
+        }
+
+        function validateAssunto(assunto) {
+            if (!assunto || assunto === '') {
+                return 'Por favor, selecione um assunto.';
+            }
+            return null;
+        }
+
+        function validateMensagem(mensagem) {
+            if (!mensagem || mensagem.trim().length === 0) {
+                return 'A mensagem é obrigatória.';
+            }
+            if (mensagem.trim().length < 10) {
+                return 'A mensagem deve ter pelo menos 10 caracteres.';
+            }
+            if (mensagem.trim().length > 1000) {
+                return 'A mensagem deve ter no máximo 1000 caracteres.';
+            }
+            return null;
+        }
+
+        // Exibir mensagem de erro
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement && message) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                inputElement.style.borderColor = '#dc3545';
+            }
+        }
+
+        // Limpar mensagem de erro
+        function clearError(fieldId) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+                inputElement.style.borderColor = '#ddd';
+            }
+        }
+
+        // Validação em tempo real
+        nomeInput.addEventListener('blur', function() {
+            const error = validateNome(this.value);
+            if (error) {
+                showError('nome', error);
+            } else {
+                clearError('nome');
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            const error = validateEmail(this.value);
+            if (error) {
+                showError('email', error);
+            } else {
+                clearError('email');
+            }
+        });
+
+        assuntoSelect.addEventListener('change', function() {
+            const error = validateAssunto(this.value);
+            if (error) {
+                showError('assunto', error);
+            } else {
+                clearError('assunto');
+            }
+        });
+
+        mensagemTextarea.addEventListener('blur', function() {
+            const error = validateMensagem(this.value);
+            if (error) {
+                showError('mensagem', error);
+            } else {
+                clearError('mensagem');
+            }
         });
 
         // Função para lidar com o envio do formulário
         function handleSubmit(event) {
             event.preventDefault();
             
-            // Simula o envio do formulário
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
+            // Limpar todos os erros anteriores
+            clearError('nome');
+            clearError('email');
+            clearError('assunto');
+            clearError('mensagem');
+
+            // Validar todos os campos
+            const nomeError = validateNome(nomeInput.value);
+            const emailError = validateEmail(emailInput.value);
+            const assuntoError = validateAssunto(assuntoSelect.value);
+            const mensagemError = validateMensagem(mensagemTextarea.value);
+
+            // Se houver erros, exibi-los e impedir o envio
+            let hasErrors = false;
+
+            if (nomeError) {
+                showError('nome', nomeError);
+                hasErrors = true;
+            }
+            if (emailError) {
+                showError('email', emailError);
+                hasErrors = true;
+            }
+            if (assuntoError) {
+                showError('assunto', assuntoError);
+                hasErrors = true;
+            }
+            if (mensagemError) {
+                showError('mensagem', mensagemError);
+                hasErrors = true;
+            }
+
+            // Se houver erros, focar no primeiro campo com erro e parar
+            if (hasErrors) {
+                if (nomeError) nomeInput.focus();
+                else if (emailError) emailInput.focus();
+                else if (assuntoError) assuntoSelect.focus();
+                else if (mensagemError) mensagemTextarea.focus();
+                return false;
+            }
+
+            // Se passou em todas as validações, processar o envio
+            const formData = {
+                nome: nomeInput.value.trim(),
+                email: emailInput.value.trim(),
+                assunto: assuntoSelect.value,
+                mensagem: mensagemTextarea.value.trim(),
+                timestamp: new Date().toISOString()
+            };
             
             // Aqui você normalmente enviaria os dados para um servidor
-            console.log('Dados do formulário:', data);
+            console.log('Dados do formulário validados:', formData);
             
             // Feedback visual para o usuário
-            alert('Obrigado pelo seu contato! Sua mensagem foi enviada com sucesso. Responderemos em breve.');
+            alert('✓ Obrigado pelo seu contato!\n\nSua mensagem foi enviada com sucesso.\nResponderemos em breve no e-mail: ' + formData.email);
             
-            // Limpa o formulário
-            event.target.reset();
+            // Limpar o rascunho do localStorage após envio bem-sucedido
+            localStorage.removeItem(DRAFT_KEY);
+            
+            // Limpar o formulário
+            form.reset();
             charCount.textContent = '0';
+            draftStatus.textContent = '';
         }
     </script>
 </body>
